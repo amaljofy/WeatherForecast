@@ -24,4 +24,6 @@
     <color name="weather__heading__text_color">#FFFFFF</color>
     <color name="weather__value__text_color">#FFFFFF</color>
 
+    <color name="weather__background_color">#616161</color>
+
 </resources>

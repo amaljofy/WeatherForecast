@@ -2,9 +2,9 @@
 <resources>
     <integer name="weather__heading__font_weight">700</integer>
     <dimen name="weather__heading__font_line_height">18dp</dimen>
-    <dimen name="weather__heading__font_size">14sp</dimen>
+    <dimen name="weather__heading__font_size">16sp</dimen>
     <integer name="weather__value__font_weight">400</integer>
     <dimen name="weather__value__font_line_height">18dp</dimen>
-    <dimen name="weather__value__font_size">14sp</dimen>
+    <dimen name="weather__value__font_size">16sp</dimen>
 
 </resources>

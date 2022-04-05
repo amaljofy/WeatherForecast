@@ -30,6 +30,6 @@ fun DashboardScreen() {
             )
         },
         content = {
-            ProgressScreen()
+            VerticalCollection()
         })
 }
