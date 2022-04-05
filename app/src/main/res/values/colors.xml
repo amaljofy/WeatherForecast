@@ -7,4 +7,21 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="background_action__default">#0e556f</color>
+    <color name="background_action__emphasis">#0c4b62</color>
+    <color name="background_base">#FFFFFF</color>
+    <color name="background__1">#FFFFFF</color>
+    <color name="background__2">#FFFFFF</color>
+    <color name="dialog__background_color">#FFFFFF</color>
+    <color name="background_negative__default">#C72800</color>
+    <color name="fill_light">#FFFFFF</color>
+    <color name="fill_action__default">#0c4b62</color>
+    <color name="fill_default">#616161</color>
+    <color name="text_inverse">#FFFFFF</color>
+    <color name="text_default">#616161</color>
+
+    <color name="weather__heading__text_color">#FFFFFF</color>
+    <color name="weather__value__text_color">#FFFFFF</color>
+
 </resources>

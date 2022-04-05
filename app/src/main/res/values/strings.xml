@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WeatherForecast</string>
+    <string name="label_dashboard">Weather Dashboard</string>
+    <string name="failed_loading_msg">Something went wrong</string>
+    <string name="failed_network_msg">No internet connection</string>
+    <string name="retry">Retry</string>
 </resources>
