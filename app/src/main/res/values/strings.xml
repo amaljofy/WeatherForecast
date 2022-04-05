@@ -4,4 +4,5 @@
     <string name="failed_loading_msg">Something went wrong</string>
     <string name="failed_network_msg">No internet connection</string>
     <string name="retry">Retry</string>
+    <string name="database">WeatherDatabase</string>
 </resources>

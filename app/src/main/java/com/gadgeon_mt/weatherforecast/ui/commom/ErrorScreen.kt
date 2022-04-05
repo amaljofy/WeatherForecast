@@ -10,7 +10,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.gadgeon_mt.weatherforecast.R
 
-
 @Composable
 fun ErrorScreen(message: String, refresh: () -> Unit) {
     Column(

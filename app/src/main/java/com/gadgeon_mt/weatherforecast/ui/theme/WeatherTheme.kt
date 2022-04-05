@@ -6,8 +6,6 @@ import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.colorResource
-import com.android.sample.app.ui.theme.Shapes
-import com.android.sample.app.ui.theme.Typography
 import com.gadgeon_mt.weatherforecast.R
 
 @Composable

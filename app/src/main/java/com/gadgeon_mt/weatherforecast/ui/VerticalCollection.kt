@@ -47,26 +47,31 @@ private fun VerticalListItem() {
             )
             .padding(horizontal = horizontalSpacing, vertical = verticalSpacing)
     ) {
-        WeatherRow(headingText = "City Name :", valueText = "Muvattupuzha")
+        WeatherRow(headingText = "City Name :", valueText = "Mūvattupula")
         Spacer(
             modifier = Modifier.height(
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
             )
         )
-        WeatherRow(headingText = "Temperature Min :", valueText = "26 ")
+        WeatherRow(headingText = "Temperature Min :", valueText = "25.97")
         Spacer(
             modifier = Modifier.height(
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
             )
         )
-        WeatherRow(headingText = "Temperature Max :", valueText = "78")
+        WeatherRow(headingText = "Temperature Max :", valueText = "25.97")
         Spacer(
             modifier = Modifier.height(
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
             )
         )
-        WeatherRow(headingText = "Humidity :", valueText = "788")
-
+        WeatherRow(headingText = "Humidity :", valueText = "88")
+        Spacer(
+            modifier = Modifier.height(
+                dimensionResource(id = R.dimen.weather__stacked__spacing_between)
+            )
+        )
+        WeatherRow(headingText = "Date Time :", valueText = "2022-04-07 15:00:00")
     }
 }
 

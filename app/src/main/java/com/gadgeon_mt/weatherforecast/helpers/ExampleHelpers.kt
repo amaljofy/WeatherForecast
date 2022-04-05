@@ -14,7 +14,6 @@ import androidx.compose.ui.unit.dp
 import com.gadgeon_mt.weatherforecast.R
 import com.gadgeon_mt.weatherforecast.ui.theme.WeatherTheme
 
-
 @Composable
 fun ExampleColumn(content: @Composable () -> Unit) {
     WeatherTheme() {

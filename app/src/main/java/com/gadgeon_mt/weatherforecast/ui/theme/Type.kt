@@ -1,4 +1,4 @@
-package com.android.sample.app.ui.theme
+package com.gadgeon_mt.weatherforecast.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
