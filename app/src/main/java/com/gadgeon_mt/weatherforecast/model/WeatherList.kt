@@ -8,8 +8,6 @@ data class WeatherList(
     var dt: Int? = null,
     @SerializedName("main")
     var main: WeatherMain? = WeatherMain(),
-    @SerializedName("visibility")
-    var visibility: Int? = null,
     @SerializedName("dt_txt")
     var dtTxt: String? = null
 )

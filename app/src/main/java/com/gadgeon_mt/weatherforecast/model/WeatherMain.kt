@@ -18,7 +18,7 @@ data class WeatherMain(
     @SerializedName("grnd_level")
     var grndLevel: Int? = null,
     @SerializedName("humidity")
-    var humidity: Double? = null,
+    var humidity: Int? = null,
     @SerializedName("temp_kf")
     var tempKf: Double? = null
 )

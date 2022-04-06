@@ -5,9 +5,6 @@ import com.gadgeon_mt.weatherforecast.database.WeatherListDb
 import com.google.gson.annotations.SerializedName
 
 data class WeatherData(
-
-    @SerializedName("cod")
-    var cod: String? = null,
     @SerializedName("message")
     var message: Int? = null,
     @SerializedName("list")

@@ -2,6 +2,8 @@ package com.gadgeon_mt.weatherforecast.ui
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
@@ -16,24 +18,29 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.gadgeon_mt.weatherforecast.R
-import com.gadgeon_mt.weatherforecast.helpers.ExampleColumn
+import com.gadgeon_mt.weatherforecast.model.WeatherData
+import com.gadgeon_mt.weatherforecast.model.WeatherList
 import com.gadgeon_mt.weatherforecast.ui.theme.WeatherFont
 import com.gadgeon_mt.weatherforecast.utils.dimenToSp
 import com.gadgeon_mt.weatherforecast.utils.fontWeight
 
 @Composable
-fun VerticalCollection() {
-//    LazyColumn {
-//
-//    }
+fun VerticalCollection(weatherData: WeatherData) {
 
-    ExampleColumn {
-        VerticalListItem()
+    LazyColumn {
+        items(
+            items = weatherData.weatherList,
+            itemContent = { list ->
+                VerticalListItem(list,weatherData.city?.name!!)
+                ListItemDivider()
+            }
+        )
     }
+
 }
 
 @Composable
-private fun VerticalListItem() {
+private fun VerticalListItem(list: WeatherList, cityName: String) {
     val verticalSpacing = dimensionResource(id = R.dimen.weather__spacing_inner_vert)
     val horizontalSpacing = dimensionResource(id = R.dimen.weather__spacing_inner_horiz)
     Column(
@@ -47,31 +54,31 @@ private fun VerticalListItem() {
             )
             .padding(horizontal = horizontalSpacing, vertical = verticalSpacing)
     ) {
-        WeatherRow(headingText = "City Name :", valueText = "Mūvattupula")
+        WeatherRow(headingText = "City Name :", valueText = cityName)
         Spacer(
             modifier = Modifier.height(
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
             )
         )
-        WeatherRow(headingText = "Temperature Min :", valueText = "25.97")
+        WeatherRow(headingText = "Temperature Min :", valueText = list.main?.tempMin!!.toString())
         Spacer(
             modifier = Modifier.height(
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
             )
         )
-        WeatherRow(headingText = "Temperature Max :", valueText = "25.97")
+        WeatherRow(headingText = "Temperature Max :", valueText = list.main?.let { it.tempMax }.toString())
         Spacer(
             modifier = Modifier.height(
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
             )
         )
-        WeatherRow(headingText = "Humidity :", valueText = "88")
+        WeatherRow(headingText = "Humidity :", valueText = list.main?.let { it.humidity }.toString())
         Spacer(
             modifier = Modifier.height(
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
             )
         )
-        WeatherRow(headingText = "Date Time :", valueText = "2022-04-07 15:00:00")
+        WeatherRow(headingText = "Date Time :", valueText = list.dtTxt!!)
     }
 }
 

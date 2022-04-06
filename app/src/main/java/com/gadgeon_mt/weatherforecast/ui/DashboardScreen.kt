@@ -33,7 +33,8 @@ fun DashboardScreen(viewModel: WeatherViewModel = hiltViewModel()) {
         },
         content = {
             Content(viewModel = viewModel) {
-                Timber.e("Heelo",it.city)
+                Timber.e(it.city?.name)
+                VerticalCollection(it)
             }
         })
 }

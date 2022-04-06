@@ -24,7 +24,7 @@ fun WeatherDb.asDomainModel(): WeatherData {
         weatherList = this.weatherListDb.map {
             WeatherList(
                 dtTxt = it.dateTime,
-                main = WeatherMain(it.temp_max,it.temp_min,it.humidity)
+                main = WeatherMain(tempMax = it.temp_max, tempMin = it.temp_min, humidity = it.humidity)
             )
         } as ArrayList<WeatherList>
     )
