@@ -20,7 +20,7 @@ class WeatherRepository @Inject constructor(
     @IoDispatcher ioDispatcher: CoroutineDispatcher
 ) : BaseRepository<WeatherData>(context, ioDispatcher) {
 
-    override suspend fun fetch(url: String?): WeatherData = api.getWeatherData(
+    override suspend fun fetch(): WeatherData = api.getWeatherData(
         id = "524901",
         appId = "7248734965e9721707912fc99ac77247",
         units = "metric",
@@ -31,7 +31,7 @@ class WeatherRepository @Inject constructor(
     override suspend fun saveFetchResult(t: WeatherData) {
         dao.insert(t.asDatabaseModel())
     }
-    override suspend fun query(id: String?): WeatherData? =
+    override suspend fun query(): WeatherData? =
         dao.getWeatherData()?.asDomainModel()
 
 }

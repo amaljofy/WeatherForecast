@@ -9,9 +9,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 open class BaseViewModel<T>(
-    private val repository: BaseRepository<T>,
-    private val linkId: String? = null,
-    private val linkUrl: String? = null
+    private val repository: BaseRepository<T>
 ) : ViewModel() {
 
     private val _stateFlow = MutableStateFlow<ViewState<T?>>(ViewState.Loading)
@@ -29,7 +27,7 @@ open class BaseViewModel<T>(
     fun refresh() {
         viewModelScope.launch {
             _isRefreshing.emit(true)
-            repository.getResult(linkId, linkUrl).collect {
+            repository.getResult().collect {
                 _stateFlow.tryEmit(it)
             }
             _isRefreshing.emit(false)
