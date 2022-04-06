@@ -27,11 +27,14 @@ import com.gadgeon_mt.weatherforecast.utils.fontWeight
 @Composable
 fun VerticalCollection(weatherData: WeatherData) {
 
-    LazyColumn {
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp)
+    ) {
         items(
             items = weatherData.weatherList,
             itemContent = { list ->
-                VerticalListItem(list,weatherData.city?.name!!)
+                VerticalListItem(list, weatherData.city?.name!!)
                 ListItemDivider()
             }
         )
@@ -49,7 +52,7 @@ private fun VerticalListItem(list: WeatherList, cityName: String) {
             .padding(horizontal = dimensionResource(id = R.dimen.weather__standard__spacing_inner))
             .testTag("banner_row")
             .background(
-                color = colorResource(id = R.color.weather__background_color),
+                color = colorResource(id = R.color.teal_700),
                 shape = RoundedCornerShape(10.dp)
             )
             .padding(horizontal = horizontalSpacing, vertical = verticalSpacing)
@@ -60,19 +63,25 @@ private fun VerticalListItem(list: WeatherList, cityName: String) {
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
             )
         )
-        WeatherRow(headingText = "Temperature Min :", valueText = list.main?.tempMin!!.toString())
+        WeatherRow(headingText = "Temperature Min :", valueText = list.main?.tempMin!!.toString()+"°C")
         Spacer(
             modifier = Modifier.height(
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
             )
         )
-        WeatherRow(headingText = "Temperature Max :", valueText = list.main?.let { it.tempMax }.toString())
+        WeatherRow(
+            headingText = "Temperature Max :",
+            valueText = list.main?.tempMax.toString()+"°C"
+        )
         Spacer(
             modifier = Modifier.height(
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
             )
         )
-        WeatherRow(headingText = "Humidity :", valueText = list.main?.let { it.humidity }.toString())
+        WeatherRow(
+            headingText = "Humidity :",
+            valueText = list.main?.humidity.toString()+"%"
+        )
         Spacer(
             modifier = Modifier.height(
                 dimensionResource(id = R.dimen.weather__stacked__spacing_between)
@@ -94,10 +103,10 @@ private fun WeatherRow(
     headingText: String,
     valueText: String
 ) {
-    Row (
+    Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
-            ){
+    ) {
         WeatherHeadingText(heading = headingText)
         Spacer(
             modifier = Modifier.width(dimensionResource(id = R.dimen.weather__inline__spacing_between))

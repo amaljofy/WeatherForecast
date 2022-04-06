@@ -23,31 +23,16 @@ abstract class BaseRepository<T>(
 
     fun getResult(): Flow<ViewState<T?>> = flow {
         emit(ViewState.Loading)
-        query()?.let {
-            // ****** STEP 1: VIEW CACHE ******
-            emit(ViewState.Success(it))
-            // ****** STEP 2: MAKE NETWORK CALL, SAVE RESULT TO CACHE ******
-            refresh()
-            // ****** STEP 3: VIEW CACHE ******
-            emit(ViewState.Success(query()))
-        } ?: run {
-            if (context.isNetworkAvailable()) {
-                try {
-                    // ****** STEP 1: MAKE NETWORK CALL, SAVE RESULT TO CACHE ******
-                    refresh()
-                    // ****** STEP 2: VIEW CACHE ******
-                    emit(ViewState.Success(query()))
-                } catch (t: Throwable) {
-                    emit(ViewState.Error(context.getString(R.string.failed_loading_msg)))
-                }
-            } else {
-                emit(ViewState.Error(context.getString(R.string.failed_network_msg)))
+        if (context.isNetworkAvailable()) {
+            try {
+                emit(ViewState.Success(fetch()))
+                saveFetchResult(fetch())
+            } catch (t: Throwable) {
+                emit(ViewState.Error(context.getString(R.string.failed_loading_msg)))
             }
+        } else {
+            emit(ViewState.Success(query()))
         }
     }.flowOn(ioDispatcher)
         .catch { Timber.e(it) }
-
-    private suspend fun refresh() {
-        saveFetchResult(fetch())
-    }
 }

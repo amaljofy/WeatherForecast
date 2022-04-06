@@ -24,8 +24,8 @@ class WeatherRepository @Inject constructor(
         id = "524901",
         appId = "7248734965e9721707912fc99ac77247",
         units = "metric",
-        latitude = 9.9470,
-        longitude = 76.6359
+        latitude = 9.931233,
+        longitude = 76.267303
     )
 
     override suspend fun saveFetchResult(t: WeatherData) {
